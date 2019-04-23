@@ -1,33 +1,14 @@
-.App {
-  text-align: center;
-}
+body { background: #0D0D0D !important; } 
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Color Theme Swatches in Hex */
+.Dark-abstract-backgrounds-1-hex { color: #D9D9D9; }
+.Dark-abstract-backgrounds-2-hex { color: #737373; }
+.Dark-abstract-backgrounds-3-hex { color: #404040; }
+.Dark-abstract-backgrounds-4-hex { color: #262626; }
+.Dark-abstract-backgrounds-5-hex { color: #0D0D0D; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.form {
+background-color: #D9D9D9;
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

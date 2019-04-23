@@ -16,11 +16,19 @@ let Orders = ({ orders, history, deleteOrder }) => {
     history.push(`/order/${key}`)
   }
 
-  return (<Container className="mt-3">
 
+  const confirmDelete = (key, order) => {
+    if (window.confirm(`確認刪除 ${order.name}？`)) {
+      deleteOrder(key)
+    }
+  }
+
+
+  return (<Container className="mt-3">
+    {!orders.length && <h3 >目前沒有訂單，來試試看新增訂單吧！</h3>}
     <Button color="primary" onClick={addOrder}>新增訂單</Button>
 
-    {orders.toArray().map(([key, order]) => <Card key={key} className="mt-2" >
+    {!!orders.length && orders.map(([key, order]) => <Card key={key} className="mt-2" >
       <CardBody>
         <h3>{order.name}  </h3>
         <h5>${order.price} </h5>
@@ -31,16 +39,18 @@ let Orders = ({ orders, history, deleteOrder }) => {
         }
         <Button color="warning" onClick={() => { goToOrder(key) }} >修改</Button>
         {' '}
-        <Button color="danger" onClick={() => { deleteOrder(key) }} >刪除</Button>
+        <Button color="danger" onClick={() => { confirmDelete(key, order) }} >刪除</Button>
       </CardBody>
     </Card>)
     }
+
+
   </Container>)
 }
 
 
 const mapStateToProps = (state) => {
-  return { orders: state.get('orders') }
+  return { orders: state.get('orders').toArray() }
 }
 
 

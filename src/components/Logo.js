@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { Navbar, NavbarBrand, } from 'reactstrap';
 
 
 
@@ -18,21 +18,20 @@ width:100%;
 `
 
 const Acii = styled.pre`
-  font-size: 12px;
-  // border:1px solid red;
-  width:570px;
+  width:600px;
   white-space: pre;
   margin:0 auto;
   color: #737373;
-  @media (max-width: 320px) {
-    transform-origin: top left;
-    transform : scale(0.6);
-  }
 `
 
 
 let Logo = ({ dispatch }) => {
-  return (<Outer><Acii>{aciiArt}</Acii></Outer>)
+  return (<Outer>
+    <Navbar color="light" light expand="md" className="d-block d-sm-none"  >
+      <NavbarBrand href="/"   >Daily Drinks</NavbarBrand>
+    </Navbar>
+    <Acii className="d-none d-sm-block"  >{aciiArt}</Acii>
+  </Outer>)
 }
 
 
